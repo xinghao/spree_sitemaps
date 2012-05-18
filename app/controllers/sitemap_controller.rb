@@ -3,12 +3,7 @@ class SitemapController < Spree::BaseController
     @public_dir = HOST_PATH + "/"
     @static_nav = _build_static_hash
     respond_to do |format|
-      format.html { @nav = _add_products_to_tax(_build_taxon_hash, false) }
       format.xml { @nav=_add_products_to_tax(_build_taxon_hash, false) }
-      format.text do
-        @nav = _add_products_to_tax(_build_taxon_hash, true)
-        render :layout => false
-      end
     end
   end
 

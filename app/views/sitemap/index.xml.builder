@@ -6,6 +6,14 @@ xml.urlset( :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" ) {
     xml.changefreq 'daily'
     xml.priority '1.0'
   }
+  
+  xml.url {
+    xml.loc @public_dir.gsub(/\/$/, "") + spree.products_path
+    xml.lastmod Date.today
+    xml.changefreq 'daily'
+    xml.priority '0.9'
+  }
+  
   @nav.each do |k, v|
     xml.url {
       xml.loc @public_dir + v['link']
